@@ -1,6 +1,19 @@
-<div *ngFor="let launch of launches">
-    <h3>{{ launch.mission_name }}</h3>
-    <p><strong>Launch Year:</strong> {{ launch.launch_year }}</p>
-    <p><strong>Details:</strong> {{ launch.details }}</p>
-    <img [src]="launch.links.mission_patch_small" alt="Mission Patch">
+<div class="filter-container">
+    <div class="filter-label">Filter by Year:</div>
+    <div class="filter-buttons">
+      <button class="filter-button" *ngFor="let year of launchYears" [class.active]="year === yearFilter" (click)="filterByYear(year)">
+        {{ year }}
+      </button>
+    </div>
   </div>
+  
+  <div class="launch-list">
+    <div *ngFor="let launch of launches | launchFilter:yearFilter">
+      <h3>{{ launch.mission_name }}</h3>
+      <p><strong>Launch Year:</strong> {{ launch.launch_year }}</p>
+      <p><strong>Details:</strong> {{ launch.details }}</p>
+      <img [src]="launch.links.mission_patch_small" alt="Mission Patch">
+    </div>
+  </div>
+
+
