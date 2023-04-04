@@ -19,7 +19,7 @@ export class MissionDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.flightNumber = params[':flight_number'];
+      this.flightNumber = params['flight_number'];
       console.log("this is flight number " + this.flightNumber);
       this.fetchLaunchDetails();
     });
