@@ -1,8 +1,14 @@
 const express = require('express');
-const app = express();
 const path = require('path');
+const app = express();
 
-app.use(express.static(__dirname + '/dist/my-angular-app'));
+// Serve static files from the dist directory
+app.use(express.static(__dirname + '/dist/angular-spacex'));
 
-app.get('/*', function(req,res) {
-    res.sendFile(path.join(__dirname+'/
+// Redirect all requests to index.html
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/angular-spacex/index.html'));
+});
+
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
