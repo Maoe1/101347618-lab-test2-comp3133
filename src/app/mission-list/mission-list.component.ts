@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-mission-list',
   templateUrl: './mission-list.component.html',
-  styleUrls: ['./mission-list.component.css']
+  styleUrls: ['./mission-list.component.css'],
+  
 })
 export class MissionListComponent implements OnInit {
 
@@ -12,10 +14,15 @@ export class MissionListComponent implements OnInit {
   launchYears: number[] = [];
   yearFilter: number = 2023;
 
-  constructor(private http: HttpClient) {}
+  constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient) {}
+
 
   filterByYear(year: number) {
     this.yearFilter = year;
+  }
+
+  getDetails(launch: any) {
+    this.router.navigate(['/details'], { queryParams: { flight_number: launch.flight_number }});
   }
 
 

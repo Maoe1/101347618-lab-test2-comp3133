@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MissionListComponent } from './mission-list/mission-list.component';
+import { MissionDetailsComponent } from './missiondetails/missiondetails.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LaunchFilterPipe } from './launch-filter.pipe';
 
@@ -11,12 +12,15 @@ import { LaunchFilterPipe } from './launch-filter.pipe';
   declarations: [
     AppComponent,
     MissionListComponent,
+    MissionDetailsComponent,
     LaunchFilterPipe
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

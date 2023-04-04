@@ -9,11 +9,15 @@
   
   <div class="launch-list">
     <div *ngFor="let launch of launches | launchFilter:yearFilter">
-      <h3>{{ launch.mission_name }}</h3>
+      <h3>
+        <a [routerLink]="['/details', launch.flight_number]">{{ launch.mission_name }}</a>
+
+      </h3>
       <p><strong>Launch Year:</strong> {{ launch.launch_year }}</p>
       <p><strong>Details:</strong> {{ launch.details }}</p>
       <img [src]="launch.links.mission_patch_small" alt="Mission Patch">
     </div>
   </div>
 
+  <app-missiondetails></app-missiondetails>
 
